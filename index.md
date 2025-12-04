@@ -1,75 +1,95 @@
 ---
-layout: home
+layout: home 
 permalink: /
 ---
 
 <style>
-  /* 1. The Grid Container */
-.project-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    row-gap: 64px;
-    column-gap: 20px;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
+  /* --- CSS STYLES --- */
 
-  /* 2. The Project Card */
+  /* 1. The Grid Container (Keeps previous spacing fixes) */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 equal columns */
+    gap: 25px; /* Explicit gap between items */
+    row-gap: 64px; /* Extra vertical breathing room */
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  /* 2. The Project Card Container */
   .project-card {
-    background: #f9f9f9;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    background: #fff; /* White background looks cleaner with images */
+    border: 1px solid #e5e5e5;
+    border-radius: 12px; /* Slightly rounder corners */
     text-decoration: none !important;
     color: #333;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
-    
-    /* Fallback: If grid gap fails, this ensures space exists */
-    margin-bottom: 0; 
+    overflow: hidden; /* CRITICAL: Ensures image doesn't bleed out of rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle base shadow */
   }
 
-  /* 3. Hover Effect */
+  /* Hover Effect */
   .project-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-color: #333;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+    border-color: #ddd;
   }
 
+  /* 3. The New Cover Image Style */
+  .card-img {
+    width: 100%;
+    height: 220px; /* FIXED HEIGHT ensures all cards align perfectly */
+    object-fit: cover; /* "Cover" settings: crops image to fill inner box without stretching */
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  /* 4. The New Content Container (holds the text) */
+  .card-content {
+    padding: 24px; /* Padding applied only to text area now */
+    flex-grow: 1; /* Ensures cards are same height even with different text length */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Typography updates */
   .project-card h3 {
     margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    color: #000; /* Ensure title is black/dark */
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.3;
   }
 
   .project-card p {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 1rem;
+    color: #555;
     margin-bottom: 0;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .project-date {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #999;
-    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #888;
+    margin-bottom: 12px;
     display: block;
   }
 
-  /* Mobile Responsive: Switch to 1 column on small screens */
-  @media (max-width: 600px) {
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
     .project-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* 1 column on mobile */
+      gap: 30px;
     }
-    /* Add margin on mobile where grid row-gap sometimes behaves differently */
-    .project-card {
-      margin-bottom: 20px; 
+    .card-img {
+       height: 200px; /* Slightly shorter images on mobile */
     }
   }
 </style>
@@ -78,34 +98,45 @@ Hi, I'm **Muthudinesh**.
 
 I'm a Product Designer at Congruent. By day, I build robust enterprise applications. By night, I tinker with electronics and AI. I bridge the gap between "it looks good" and "it actually works."
 
----
 
-## Works
+## My Works
 
 <div class="project-grid">
 
   <a href="./project-1" class="project-card">
-    <span class="project-date">Oct 2025</span>
-    <h3>GPS Navigator</h3>
-    <p>A minimalist pure navigation device built for delivery partners using ESP32.</p>
+    <img src="https://picsum.photos/id/1/600/400" alt="GPS Device Prototype" class="card-img">
+    <div class="card-content">
+      <span class="project-date">Oct 2025</span>
+      <h3>GPS Navigator</h3>
+      <p>A minimalist pure navigation hardware device built for delivery partners using ESP32.</p>
+    </div>
   </a>
 
   <a href="#" class="project-card">
-    <span class="project-date">Sep 2025</span>
-    <h3>Email System Design</h3>
-    <p>Redesigning the HTML email template structure for better responsive behavior.</p>
+    <img src="https://picsum.photos/id/2/600/400" alt="Responsive Email Designs" class="card-img">
+    <div class="card-content">
+      <span class="project-date">Sep 2025</span>
+      <h3>Email System Design</h3>
+      <p>Redesigning the HTML email template structure for better responsive behavior across clients.</p>
+    </div>
   </a>
 
   <a href="#" class="project-card">
-    <span class="project-date">Aug 2025</span>
-    <h3>Figma to Code Agent</h3>
-    <p>An AI experiment leveraging prompt engineering to automate handoffs.</p>
+    <img src="https://picsum.photos/id/3/600/400" alt="AI Code Interface" class="card-img">
+    <div class="card-content">
+      <span class="project-date">Aug 2025</span>
+      <h3>Figma to Code Agent</h3>
+      <p>An AI experiment leveraging prompt engineering to automate design-to-dev handoffs.</p>
+    </div>
   </a>
 
   <a href="#" class="project-card">
-    <span class="project-date">Jul 2025</span>
-    <h3>Enterprise Design System</h3>
-    <p>Building a robust UI kit for 401k record-keeping dashboards.</p>
+    <img src="https://picsum.photos/id/4/600/400" alt="Design System Components" class="card-img">
+    <div class="card-content">
+      <span class="project-date">Jul 2025</span>
+      <h3>Enterprise Design System</h3>
+      <p>Building a robust UI kit and documentation for complex 401k record-keeping dashboards.</p>
+    </div>
   </a>
 
 </div>
