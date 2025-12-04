@@ -112,7 +112,7 @@ permalink: /
   <a href="./project-1" class="project-card">
     <div class="card-content">
       <span class="project-date">Oct 2025</span>
-      <h3>GPS Navigator</h3>
+      <h4>GPS Navigator</h4>
       <p>A minimalist pure navigation hardware device built for delivery partners using ESP32.</p>
     </div>
     <img src="https://picsum.photos/id/1/600/400" alt="GPS Device Prototype" class="card-img">
@@ -121,7 +121,7 @@ permalink: /
   <a href="#" class="project-card">
     <div class="card-content">
       <span class="project-date">Sep 2025</span>
-      <h3>Email System Design</h3>
+      <h4>Email System Design</h4>
       <p>Redesigning the HTML email template structure for better responsive behavior across clients.</p>
     </div>
     <img src="https://picsum.photos/id/2/600/400" alt="Responsive Email Designs" class="card-img">
@@ -129,21 +129,8 @@ permalink: /
 
   <a href="#" class="project-card">
     <div class="card-content">
-      <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="70" y="60" width="60" height="50" rx="10" />
-    <circle cx="90" cy="80" r="5" />
-    <circle cx="110" cy="80" r="5" />
-    <line x1="100" y1="60" x2="100" y2="40" />
-    <circle cx="100" cy="35" r="5" />
-    <rect x="80" y="110" width="40" height="50" rx="5" />
-    <path d="M80 125 C 60 125, 60 150, 70 155" />
-    <path d="M120 125 C 140 125, 140 150, 130 155" />
-    <path d="M100 125 L 95 135 H 105 L 100 145" stroke-width="1.5" />
-  </g>
-</svg>
       <span class="project-date">Aug 2025</span>
-      <h3>Figma to Code Agent</h3>
+      <h4>Figma to Code Agent</h4>
       <p>An AI experiment leveraging prompt engineering to automate design-to-dev handoffs.</p>
     </div>
     <img src="https://picsum.photos/id/3/600/400" alt="AI Code Interface" class="card-img">
@@ -152,7 +139,7 @@ permalink: /
   <a href="#" class="project-card">
     <div class="card-content">
       <span class="project-date">Jul 2025</span>
-      <h3>Enterprise Design System</h3>
+      <h4>Enterprise Design System</h4>
       <p>Building a robust UI kit and documentation for complex 401k record-keeping dashboards.</p>
        <img src="https://picsum.photos/id/4/600/400" alt="Design System Components" class="card-img">
     </div>
