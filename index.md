@@ -108,7 +108,7 @@ permalink: /
 <h2>My Works</h2>
 
 <div class="project-grid">
-    <a href="/figmacodegen-agent" class="project-card">
+    <a href="./figmacodegen-agent" class="project-card">
     <div class="card-content">
       <span class="project-date">Aug 2025</span>
       <h4>Figma to Code Agent</h4>
