@@ -72,7 +72,7 @@ permalink: /
   }
 
   .project-card p {
-    font-size: 1rem;
+    font-size: .5rem;
     color: #555;
     margin-bottom: 0;
     line-height: 1.6;
