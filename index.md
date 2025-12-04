@@ -5,18 +5,15 @@ permalink: /
 
 <style>
   /* 1. The Grid Container */
-  .project-grid {
+.project-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Creates 2 equal columns */
-    
-    /* FIX: Explicitly setting both gaps ensuring vertical space */
-    gap: 20px; 
-    row-gap: 20px; 
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    row-gap: 64px;
     column-gap: 20px;
-    
     margin-top: 2rem;
     margin-bottom: 2rem;
-  }
+}
 
   /* 2. The Project Card */
   .project-card {
