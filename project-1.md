@@ -1,6 +1,5 @@
 ---
-layout: post
-title: "GPS Navigation Device"
+layout: post 
 date: 2025-10-29
 categories: [case-study]
 ---
