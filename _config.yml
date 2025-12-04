@@ -1,9 +1,8 @@
 title: Muthudinesh
 description: Product Designer 
-theme: minima
+theme: pages-themes/cayman@v0.2.0
 # "minima" is the standard, clean, blog-style theme perfect for what you described.
 # It looks very similar to the CSS I gave you earlier but is more powerful.
 
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+- jekyll-remote-theme
