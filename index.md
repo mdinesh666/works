@@ -1,142 +1,204 @@
 ---
 layout: home
-title: Portfolio
 permalink: /
 ---
 
 <style>
-  /* --- GLOBAL TYPOGRAPHY ENHANCEMENTS --- */
-  body {
-    /* Uses the crispest system fonts available */
-    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
-    -webkit-font-smoothing: antialiased; /* Makes text look sharper on Mac */
-    color: #222;
+  /* --- 1. LAYOUT OVERRIDES (Make it Wide) --- */
+  
+  /* Hides the default theme header to use our custom one */
+  header.site-header { display: none !important; }
+
+  /* Forces the main container to be wide enough for 3 cards */
+  .wrapper {
+    max-width: 1200px !important; 
+    padding-left: 5% !important;
+    padding-right: 5% !important;
   }
 
-  /* --- GRID LAYOUT --- */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    color: #111;
+    background: #fff;
+  }
+
+  /* --- 2. CUSTOM NAVIGATION BAR --- */
+  .custom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0; /* Breathing room at the very top */
+    margin-bottom: 20px;
+  }
+
+  .nav-logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Placeholder styles for your temp logo image */
+  .logo-img {
+    height: 40px; 
+    width: auto;
+  }
+
+  .nav-links a {
+    color: #333;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  .nav-links a:hover { color: #000; }
+
+  /* --- 3. INTRO SECTION --- */
+  .intro-section {
+    padding: 100px 0 80px 0; /* Large spacing top & bottom */
+    max-width: 700px; /* Keeps text readable width */
+  }
+
+  .intro-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+    color: #000;
+  }
+
+  .intro-text {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  /* --- 4. WORK GRID (3 Columns) --- */
+  
+  .work-section-title {
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 25px; /* Reduced space between title and cards */
+    color: #111;
+  }
+
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-responsive */
-    gap: 40px; /* More breathing room between cards */
-    margin-top: 4rem;
+    /* Forces 3 columns. If screen is small, it auto-wraps */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
     margin-bottom: 5rem;
   }
 
-  /* --- CARD DESIGN (THE BEAUTIFICATION) --- */
+  /* --- 5. CARD DESIGN --- */
   .project-card {
     background: #ffffff;
-    border: 1px solid rgba(0,0,0,0.06); /* Very subtle border */
-    border-radius: 16px; /* Modern rounded corners */
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
     text-decoration: none !important;
     color: inherit;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth "Apple-like" animation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    position: relative;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02); /* Barely visible shadow at rest */
   }
 
-  /* Hover State: The "Lift" */
   .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Soft, diffuse shadow on hover */
-    border-color: rgba(0,0,0,0.0); /* Border disappears on hover for cleaner look */
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: rgba(0,0,0,0);
   }
 
-  /* --- IMAGE STYLING --- */
   .card-img-container {
-    height: 240px;
-    overflow: hidden;
-    position: relative;
+    height: 200px; /* Fixed height for consistency */
     background: #f4f4f4;
+    overflow: hidden;
   }
 
   .card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.5s ease;
   }
+  
+  .project-card:hover .card-img { transform: scale(1.05); }
 
-  /* Zoom effect on image hover */
-  .project-card:hover .card-img {
-    transform: scale(1.03);
-  }
-
-  /* --- CONTENT & TYPOGRAPHY HIERARCHY --- */
   .card-content {
-    padding: 32px 28px; /* Generous padding feels premium */
-    flex-grow: 1;
+    padding: 24px;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
   }
 
-  /* The "Eyebrow" Date */
   .project-date {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px; /* Spaced out letters look expensive */
+    letter-spacing: 1.2px;
     color: #999;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     display: block;
   }
 
-  /* The Title */
   .project-card h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-size: 1.5rem; /* Larger title */
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #111;
-    line-height: 1.2;
-    letter-spacing: -0.5px; /* Tighter letter spacing for headlines */
+    line-height: 1.3;
   }
 
-  /* The Description */
   .project-card p {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     color: #666;
-    line-height: 1.6; /* More space between lines for readability */
-    margin-bottom: 0;
-    font-weight: 400;
+    margin: 0;
+    line-height: 1.5;
   }
 
-  /* --- INTRO SECTION TYPOGRAPHY --- */
-  .intro-text {
-    font-size: 1.25rem;
-    line-height: 1.7;
-    color: #444;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-  
-  .intro-name {
-    font-weight: 800;
-    color: #000;
+  /* --- RESPONSIVE MOBILE --- */
+  @media (max-width: 900px) {
+    .project-grid { grid-template-columns: repeat(2, 1fr); } /* 2 cols on tablet */
+    .wrapper { max-width: 100% !important; }
   }
 
-  /* Mobile Tweaks */
   @media (max-width: 600px) {
-    .project-grid { gap: 24px; }
-    .card-content { padding: 24px; }
-    .project-card h3 { font-size: 1.3rem; }
+    .project-grid { grid-template-columns: 1fr; } /* 1 col on mobile */
+    .intro-section { padding: 60px 0; }
+    .intro-title { font-size: 1.8rem; }
   }
 </style>
 
-<div class="intro-text">
-  Hi, I'm <span class="intro-name">Muthudinesh</span>.<br>
-  I'm a Product Designer at Congruent. By day, I build robust enterprise applications. By night, I tinker with electronics and AI. I bridge the gap between "it looks good" and "it actually works."
+<nav class="custom-nav">
+  <a href="/" class="nav-logo">
+    <img src="https://via.placeholder.com/40x40/000000/FFFFFF?text=M" alt="M Logo" class="logo-img">
+    </a>
+  <div class="nav-links">
+    <a href="/about">About</a>
+    <a href="mailto:your@email.com">Contact</a>
+  </div>
+</nav>
+
+<div class="intro-section">
+  <h1 class="intro-title">Hi, I am Muthudinesh.</h1>
+  <div class="intro-text">
+    I'm a Product Designer at Congruent. By day, I build robust enterprise applications. By night, I tinker with electronics and AI. I bridge the gap between "it looks good" and "it actually works."
+  </div>
 </div>
 
-<h2 style="font-weight: 800; font-size: 2rem; letter-spacing: -1px; margin-bottom: 2rem;">Selected Works</h2>
+<h2 class="work-section-title">Featured Works.</h2>
 
 <div class="project-grid">
 
   <a href="./project-1" class="project-card">
     <div class="card-img-container">
-       <img src="https://picsum.photos/id/1/800/600" alt="GPS Device Prototype" class="card-img">
+       <img src="https://picsum.photos/id/1/800/600" alt="GPS Device" class="card-img">
     </div>
     <div class="card-content">
       <span class="project-date">Oct 2025</span>
@@ -166,8 +228,8 @@ permalink: /
       <p>An AI experiment leveraging prompt engineering to automate design-to-dev handoffs.</p>
     </div>
   </a>
-
-  <a href="#" class="project-card">
+  
+   <a href="#" class="project-card">
     <div class="card-img-container">
        <img src="https://picsum.photos/id/4/800/600" alt="Design System" class="card-img">
     </div>
