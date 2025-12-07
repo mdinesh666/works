@@ -142,7 +142,7 @@ permalink: /illustrations/
       <span class="profile-name">Muthudinesh</span>
       <div class="status-chip open">
         <span class="status-dot"></span>
-        <span class="status-text">Available</span>
+        <span class="status-text">OPEN TO WORK</span>
       </div>
     </div>
   </a>
