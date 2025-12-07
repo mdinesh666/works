@@ -5,11 +5,8 @@ permalink: /
 
 <style>
   /* --- 1. LAYOUT OVERRIDES (Make it Wide) --- */
-  
-  /* Hides the default theme header to use our custom one */
   header.site-header { display: none !important; }
 
-  /* Forces the main container to be wide enough for 3 cards */
   .wrapper {
     max-width: 1200px !important; 
     padding-left: 5% !important;
@@ -20,48 +17,106 @@ permalink: /
     font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
     color: #111;
     background: #fff;
+    margin: 0; /* Reset body margin */
   }
 
-  /* --- 2. CUSTOM NAVIGATION BAR --- */
+  /* --- 2. CUSTOM NAVIGATION BAR (UPDATED) --- */
   .custom-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 0; /* Breathing room at the very top */
+    padding: 30px 0;
     margin-bottom: 20px;
+    position: relative; /* Needed for mobile menu positioning */
   }
 
   .nav-logo {
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: #000;
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 10px;
+    z-index: 101; /* Keeps logo above mobile menu */
   }
 
-  /* Placeholder styles for your temp logo image */
   .logo-img {
     border-radius: 12%;
     width: auto;
-    height: 72px;
+    height: 60px; /* Slightly smaller for better proportion */
+  }
+
+  /* Desktop Menu Styles */
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
   }
 
   .nav-links a {
     color: #333;
     text-decoration: none;
-    margin-left: 30px;
     font-size: 0.95rem;
     font-weight: 500;
+    transition: color 0.2s ease;
   }
   
   .nav-links a:hover { color: #000; }
 
+  /* Hamburger Icon (Hidden on Desktop) */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 101; /* Keeps icon above mobile menu */
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+  }
+
+  /* --- RESPONSIVE NAVIGATION (MOBILE) --- */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex; /* Show hamburger on mobile */
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 100%; /* Full screen overlay */
+      background-color: rgba(255, 255, 255, 0.98);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      transform: translateY(-100%); /* Hide up top by default */
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+    }
+
+    .nav-links.active {
+      transform: translateY(0); /* Slide down when active */
+    }
+
+    .nav-links a {
+      font-size: 1.5rem; /* Larger text on mobile */
+      font-weight: 600;
+    }
+    
+    /* Animation for Hamburger to X */
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+  }
+
   /* --- 3. INTRO SECTION --- */
   .intro-section {
-    padding: 100px 0 80px 0; /* Large spacing top & bottom */
-    max-width: 700px; /* Keeps text readable width */
+    padding: 80px 0;
+    max-width: 700px;
   }
 
   .intro-title {
@@ -79,19 +134,17 @@ permalink: /
     color: #555;
   }
 
-  /* --- 4. WORK GRID (3 Columns) --- */
-  
+  /* --- 4. WORK GRID --- */
   .work-section-title {
     font-weight: 500;
     font-size: 1.8rem;
     letter-spacing: -0.5px;
-    margin-bottom: 25px; /* Reduced space between title and cards */
+    margin-bottom: 25px;
     color: #111;
   }
 
   .project-grid {
     display: grid;
-    /* Forces 3 columns. If screen is small, it auto-wraps */
     grid-template-columns: repeat(3, 1fr); 
     gap: 30px; 
     margin-bottom: 5rem;
@@ -117,7 +170,7 @@ permalink: /
   }
 
   .card-img-container {
-    height: 200px; /* Fixed height for consistency */
+    height: 200px;
     background: #f4f4f4;
     overflow: hidden;
   }
@@ -163,25 +216,33 @@ permalink: /
     line-height: 1.5;
   }
 
-  /* --- RESPONSIVE MOBILE --- */
+  /* --- RESPONSIVE GRID --- */
   @media (max-width: 900px) {
-    .project-grid { grid-template-columns: repeat(2, 1fr); } /* 2 cols on tablet */
+    .project-grid { grid-template-columns: repeat(2, 1fr); } 
     .wrapper { max-width: 100% !important; }
   }
 
   @media (max-width: 600px) {
-    .project-grid { grid-template-columns: 1fr; } /* 1 col on mobile */
-    .intro-section { padding: 60px 0; }
+    .project-grid { grid-template-columns: 1fr; } 
+    .intro-section { padding: 50px 0; }
     .intro-title { font-size: 1.8rem; }
   }
 </style>
 
 <nav class="custom-nav">
-  <a href="/" class="nav-logo" width="100%">
+  <a href="/" class="nav-logo">
     <img src="./assets/avatar.png" alt="M Logo" class="logo-img">
-    </a>
-  <div class="nav-links">
-    <a href="/about">About</a>
+  </a>
+
+  <div class="hamburger" id="hamburger-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="nav-links">
+    <a href="/illustrations">Illustrations</a>
+    <a href="/about">About me</a>
     <a href="mailto:your@email.com">Contact</a>
   </div>
 </nav>
@@ -209,3 +270,13 @@ permalink: /
   </a> 
 
 </div>
+
+<script>
+  const hamburger = document.getElementById('hamburger-btn');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // Shows/Hides menu
+    hamburger.classList.toggle('open');  // Animates the icon
+  });
+</script>
