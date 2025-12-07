@@ -33,18 +33,56 @@ body {
     position: relative;
   }
 
-  .nav-logo {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    z-index: 101;
-  }
+/* Wrapper to position the dot relative to the image */
+.avatar-wrapper {
+  position: relative;
+  display: inline-block;
+}
 
-  .logo-img {
-    border-radius: 12%;
-    width: auto;
-    height: 60px;
+/* The Image */
+.logo-img {
+  border-radius: 14px; /* Smooth rounded square */
+  width: 56px; /* Slightly smaller looks more premium */
+  height: 56px;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+  border: 1px solid rgba(0,0,0,0.05); /* Subtle border definition */
+}
+
+/* Hover Effect: Slight zoom */
+.nav-logo:hover .logo-img {
+  transform: scale(1.05);
+}
+
+/* The Green Status Dot */
+.status-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  background-color: #10B981; /* Emerald Green */
+  border: 2px solid #fff; /* White border separates it from avatar */
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulse-green 2s infinite;
+}
+
+/* The Pulse Animation */
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
   }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
 
   .nav-links {
     display: flex;
@@ -307,9 +345,12 @@ project-card h3 {
 </style>
 
 <nav class="custom-nav">
-  <a href="/" class="nav-logo">
+<a href="/" class="nav-logo">
+  <div class="avatar-wrapper">
     <img src="./assets/avatar.png" alt="M Logo" class="logo-img">
-  </a>
+    <div class="status-badge"></div>
+  </div>
+</a>
 
   <div class="hamburger" id="hamburger-btn">
     <span></span>
