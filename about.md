@@ -182,7 +182,7 @@ permalink: /about/
 </style>
 
 <nav class="custom-nav">
-<a href="/" class="nav-logo">
+<a href="/works" class="nav-logo">
 <img src="{{ '/assets/avatar.png' | relative_url }}" alt="Muthudinesh" class="logo-img">
   <div class="profile-info">
     <span class="profile-name">Muthudinesh</span>
