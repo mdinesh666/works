@@ -6,6 +6,9 @@ permalink: /
 <style>
   /* --- 1. LAYOUT OVERRIDES (Make it Wide) --- */
   header.site-header { display: none !important; }
+  
+  /* Hides the default theme footer */
+  footer.site-footer { display: none !important; }
 
   .wrapper {
     max-width: 1200px !important; 
@@ -17,33 +20,33 @@ permalink: /
     font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
     color: #111;
     background: #fff;
-    margin: 0; /* Reset body margin */
+    margin: 0;
   }
 
-  /* --- 2. CUSTOM NAVIGATION BAR (UPDATED) --- */
+  /* --- 2. CUSTOM NAVIGATION BAR --- */
   .custom-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 0;
     margin-bottom: 20px;
-    position: relative; /* Needed for mobile menu positioning */
+    position: relative;
   }
 
   .nav-logo {
     text-decoration: none;
     display: flex;
     align-items: center;
-    z-index: 101; /* Keeps logo above mobile menu */
+    z-index: 101;
   }
 
   .logo-img {
     border-radius: 12%;
     width: auto;
-    height: 60px; /* Slightly smaller for better proportion */
+    height: 60px;
   }
 
-  /* Desktop Menu Styles */
+  /* Desktop Menu */
   .nav-links {
     display: flex;
     gap: 30px;
@@ -60,13 +63,13 @@ permalink: /
   
   .nav-links a:hover { color: #000; }
 
-  /* Hamburger Icon (Hidden on Desktop) */
+  /* Hamburger Icon */
   .hamburger {
     display: none;
     cursor: pointer;
     flex-direction: column;
     gap: 6px;
-    z-index: 101; /* Keeps icon above mobile menu */
+    z-index: 101;
   }
 
   .hamburger span {
@@ -74,43 +77,6 @@ permalink: /
     height: 2px;
     background-color: #333;
     transition: all 0.3s ease;
-  }
-
-  /* --- RESPONSIVE NAVIGATION (MOBILE) --- */
-  @media (max-width: 768px) {
-    .hamburger {
-      display: flex; /* Show hamburger on mobile */
-    }
-
-    .nav-links {
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 100%; /* Full screen overlay */
-      background-color: rgba(255, 255, 255, 0.98);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      transform: translateY(-100%); /* Hide up top by default */
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 100;
-    }
-
-    .nav-links.active {
-      transform: translateY(0); /* Slide down when active */
-    }
-
-    .nav-links a {
-      font-size: 1.5rem; /* Larger text on mobile */
-      font-weight: 600;
-    }
-    
-    /* Animation for Hamburger to X */
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
   }
 
   /* --- 3. INTRO SECTION --- */
@@ -216,10 +182,67 @@ permalink: /
     line-height: 1.5;
   }
 
-  /* --- RESPONSIVE GRID --- */
+  /* --- 6. CUSTOM FOOTER --- */
+  .custom-footer {
+    text-align: center;
+    padding: 60px 0 40px 0; /* Top/Bottom padding */
+    margin-top: 40px;
+    border-top: 1px solid #f0f0f0; /* Optional: Very subtle separator line */
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .custom-footer a {
+    color: #111;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  
+  .custom-footer a:hover { opacity: 0.6; }
+
+  /* The Circle Divider */
+  .footer-divider {
+    width: 4px;
+    height: 4px;
+    background-color: #111;
+    border-radius: 50%; /* Makes it a circle */
+    margin: 0 20px; /* Space around the circle */
+    display: inline-block;
+  }
+
+  /* --- RESPONSIVE CSS --- */
   @media (max-width: 900px) {
     .project-grid { grid-template-columns: repeat(2, 1fr); } 
     .wrapper { max-width: 100% !important; }
+  }
+
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.98);
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+      transform: translateY(-100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+    }
+
+    .nav-links.active { transform: translateY(0); }
+    .nav-links a { font-size: 1.5rem; font-weight: 600; }
+    
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
   }
 
   @media (max-width: 600px) {
@@ -271,12 +294,18 @@ permalink: /
 
 </div>
 
+<footer class="custom-footer">
+    <a href="https://medium.com/@muthudinesh666" target="_blank">Medium</a>
+    <span class="footer-divider"></span>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+</footer>
+
 <script>
   const hamburger = document.getElementById('hamburger-btn');
   const navLinks = document.getElementById('nav-links');
 
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active'); // Shows/Hides menu
-    hamburger.classList.toggle('open');  // Animates the icon
+    navLinks.classList.toggle('active'); 
+    hamburger.classList.toggle('open');
   });
 </script>
