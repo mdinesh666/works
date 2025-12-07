@@ -72,7 +72,7 @@ permalink: /illustrations/
 
   .section-title {
     font-size: 2.2rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: -0.5px;
     color: #111;
     margin-bottom: 10px;
