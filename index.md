@@ -196,48 +196,15 @@ permalink: /
 
 <div class="project-grid">
 
-  <a href="./project-1" class="project-card">
+  <a href="https://medium.com/@muthudinesh666/from-pixels-to-perfect-code-the-architectural-blueprint-for-our-figma-to-code-agent-9004a6a4955e" class="project-card">
     <div class="card-img-container">
-       <img src="https://picsum.photos/id/1/800/600" alt="GPS Device" class="card-img">
+       <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*9K6lbAlqnOiszWskMRbLJA.png" alt="FigmaToCode Agent" class="card-img">
     </div>
     <div class="card-content">
       <span class="project-date">Oct 2025</span>
-      <h3>GPS Navigator</h3>
+      <h3>FigmaToCode Agent</h3>
       <p>A minimalist pure navigation hardware device built for delivery partners using ESP32.</p>
     </div>
-  </a>
-
-  <a href="#" class="project-card">
-    <div class="card-img-container">
-       <img src="https://picsum.photos/id/2/800/600" alt="Email System" class="card-img">
-    </div>
-    <div class="card-content">
-      <span class="project-date">Sep 2025</span>
-      <h3>Email System Design</h3>
-      <p>Redesigning the HTML email template structure for better responsive behavior.</p>
-    </div>
-  </a>
-
-  <a href="#" class="project-card">
-    <div class="card-img-container">
-       <img src="https://picsum.photos/id/3/800/600" alt="AI Agent" class="card-img">
-    </div>
-    <div class="card-content">
-      <span class="project-date">Aug 2025</span>
-      <h3>Figma to Code Agent</h3>
-      <p>An AI experiment leveraging prompt engineering to automate design-to-dev handoffs.</p>
-    </div>
-  </a>
-  
-   <a href="#" class="project-card">
-    <div class="card-img-container">
-       <img src="https://picsum.photos/id/4/800/600" alt="Design System" class="card-img">
-    </div>
-    <div class="card-content">
-      <span class="project-date">Jul 2025</span>
-      <h3>Enterprise Design System</h3>
-      <p>Building a robust UI kit and documentation for complex 401k record-keeping dashboards.</p>
-    </div>
-  </a>
+  </a> 
 
 </div>
