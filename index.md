@@ -54,34 +54,91 @@ body {
   transform: scale(1.05);
 }
 
-/* The Green Status Dot */
-.status-badge {
-  position: absolute;
-  bottom: -2px;
-  right: -2px;
-  width: 14px;
-  height: 14px;
-  background-color: #10B981; /* Emerald Green */
-  border: 2px solid #fff; /* White border separates it from avatar */
-  border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-  animation: pulse-green 2s infinite;
+/* --- NAV LOGO CONTAINER --- */
+.nav-logo {
+  display: flex;
+  align-items: center; /* Vertically centers image and text */
+  gap: 14px; /* Space between Avatar and Text */
+  text-decoration: none;
 }
 
-/* The Pulse Animation */
-@keyframes pulse-green {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-  }
+.nav-logo:hover .profile-name {
+  color: #000; /* Subtle interaction */
+}
+
+/* --- AVATAR IMAGE --- */
+.logo-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px; /* "Squircle" shape */
+  object-fit: cover;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #f4f4f4;
+}
+
+/* --- TEXT CONTAINER (Name + Chip) --- */
+.profile-info {
+  display: flex;
+  flex-direction: column; /* Stacks Name on top of Chip */
+  justify-content: center;
+  gap: 4px; /* Tiny space between Name and Chip */
+}
+
+/* --- NAME STYLING --- */
+.profile-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+}
+
+/* --- STATUS CHIP (Updated Layout) --- */
+.status-chip {
+  /* Removed absolute positioning */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  
+  /* Pill Styling */
+  background: rgba(0,0,0,0.03); /* Very light grey background */
+  padding: 3px 8px;
+  border-radius: 12px;
+  width: fit-content; /* Hugs the content */
+  
+  font-size: 0.7rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* Dot Styling (Kept same as before) */
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #ccc;
+  border-radius: 50%;
+  position: relative;
+}
+
+/* --- STATUS MODES --- */
+
+/* OPEN (Green) */
+.status-chip.open { color: #059669; background: rgba(16, 185, 129, 0.1); }
+.status-chip.open .status-dot { background-color: #10B981; box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2); }
+
+/* BUSY (Purple) */
+.status-chip.busy { color: #7C3AED; background: rgba(139, 92, 246, 0.1); }
+.status-chip.busy .status-dot { background-color: #8B5CF6; }
+
+/* BREAK (Orange) */
+.status-chip.break { color: #D97706; background: rgba(245, 158, 11, 0.1); }
+.status-chip.break .status-dot { background-color: #F59E0B; }
+
+/* Mobile Adjustment */
+@media (max-width: 600px) {
+  .logo-img { width: 44px; height: 44px; }
+  .profile-name { font-size: 0.95rem; }
+  .status-chip { font-size: 0.65rem; padding: 2px 6px; }
 }
 
   .nav-links {
@@ -346,9 +403,14 @@ project-card h3 {
 
 <nav class="custom-nav">
 <a href="/" class="nav-logo">
-  <div class="avatar-wrapper">
-    <img src="./assets/avatar.png" alt="M Logo" class="logo-img">
-    <div class="status-badge"></div>
+  <img src="./assets/avatar.png" alt="Muthudinesh" class="logo-img">
+  
+  <div class="profile-info">
+    <span class="profile-name">Muthudinesh</span>
+    <div class="status-chip open">
+      <span class="status-dot"></span>
+      <span class="status-text">Available</span>
+    </div>
   </div>
 </a>
 
