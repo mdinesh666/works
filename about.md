@@ -1,6 +1,5 @@
 ---
 layout: home
-title: About Me
 permalink: /about/
 ---
 
@@ -90,7 +89,7 @@ permalink: /about/
   /* Section Headers */
   .section-title {
     font-size: 2.2rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: -0.5px;
     margin-bottom: 1.5rem;
     color: #111;
@@ -139,29 +138,28 @@ permalink: /about/
     border-radius: 50%;
   }
 
-  .job-title {
-    font-size: 1.2rem;
-    font-weight: 700;
+.job-title {
+    font-size: 1.1rem;
+    font-weight: 500;
     color: #111;
     margin: 0 0 5px 0;
-  }
+}
 
-  .job-meta {
-    font-size: 0.85rem;
-    font-weight: 600;
+.job-meta {
+    font-size: 0.8rem;
+    font-weight: 500;
     color: #888;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 10px;
     display: block;
-  }
-
-  .job-desc {
-    font-size: 1rem;
+}
+.job-desc {
+    font-size: .8rem;
     line-height: 1.6;
     color: #666;
     margin: 0;
-  }
+}
 
   /* --- FOOTER (Exact Copy) --- */
   .custom-footer {
@@ -185,7 +183,7 @@ permalink: /about/
 
 <nav class="custom-nav">
   <a href="/" class="nav-logo">
-    <img src="/assets/avatar.png" alt="Muthudinesh" class="logo-img">
+    <img src="./assets/avatar.png" alt="Muthudinesh" class="logo-img">
     <div class="profile-info">
       <span class="profile-name">Muthudinesh</span>
       <div class="status-chip open">
