@@ -177,7 +177,7 @@ permalink: /
 
 <nav class="custom-nav">
   <a href="/" class="nav-logo" width="100%">
-    <img src="./avatar.png" alt="M Logo" class="logo-img">
+    <img src="/assets/avatar.png" alt="M Logo" class="logo-img">
     </a>
   <div class="nav-links">
     <a href="/about">About</a>
